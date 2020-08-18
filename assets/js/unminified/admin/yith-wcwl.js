@@ -480,7 +480,7 @@ jQuery( document ).ready( function( $ ) {
                     return state.text;
                 }
                 return $(
-                    '<span><i class="option-icon fa ' + state.element.value.toLowerCase() + '" ></i> ' + state.text + '</span>'
+                    '<span><i class="option-icon ' + state.element.value.toLowerCase() + '" ></i> ' + state.text + '</span>'
                 );
             };
 

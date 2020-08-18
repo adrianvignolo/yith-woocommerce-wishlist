@@ -37,7 +37,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 			<?php echo apply_filters( 'yith_wcwl_wishlist_title', '<h2>' . esc_html( $page_title ) . '</h2>' ); ?>
 			<?php if ( $can_user_edit_title ) : ?>
 				<a class="btn button show-title-form">
-					<?php echo apply_filters( 'yith_wcwl_edit_title_icon', '<i class="fa fa-pencil"></i>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo apply_filters( 'yith_wcwl_edit_title_icon', '<i class="fas fa-pencil-alt"></i>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php esc_html_e( 'Edit title', 'yith-woocommerce-wishlist' ); ?>
 				</a>
 			<?php endif; ?>
@@ -47,7 +47,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 				<input type="text" value="<?php echo esc_attr( $page_title ); ?>" name="wishlist_name"/>
 				<input type="submit" name="save_title" value="<?php esc_html_e( 'Save', 'yith-woocommerce-wishlist' ); ?>" />
 				<a class="hide-title-form btn button">
-					<?php echo apply_filters( 'yith_wcwl_cancel_wishlist_title_icon', '<i class="fa fa-remove"></i>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo apply_filters( 'yith_wcwl_cancel_wishlist_title_icon', '<i class="fas fa-times"></i>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php esc_html_e( 'Cancel', 'yith-woocommerce-wishlist' ); ?>
 				</a>
 			</div>

@@ -245,7 +245,7 @@ if( ! class_exists( 'YITH_WCWL_Shortcode' ) ) {
 			if ( 'custom' == $icon ) {
 				$heading_icon = '<img src="' . $custom_icon . '" width="32" />';
 			} else {
-				$heading_icon = ! empty( $icon ) ? '<i class="fa ' . $icon . '"></i>' : '';
+				$heading_icon = ! empty( $icon ) ? '<i class="' . $icon . '"></i>' : '';
 			}
 
 			// init params needed to load correct template.
@@ -422,11 +422,11 @@ if( ! class_exists( 'YITH_WCWL_Shortcode' ) ) {
 					);
 
 					if ( $share_facebook_enabled ) {
-						$share_facebook_icon = get_option( 'yith_wcwl_fb_button_icon', 'fa-facebook' );
+						$share_facebook_icon = get_option( 'yith_wcwl_fb_button_icon', 'fab fa-facebook-f' );
 						$share_facebook_custom_icon = get_option( 'yith_wcwl_fb_button_custom_icon' );
 
 						if ( ! in_array( $share_facebook_icon, array( 'none', 'custom' ) ) ) {
-							$share_atts['share_facebook_icon'] = "<i class='fa {$share_facebook_icon}'></i>";
+							$share_atts['share_facebook_icon'] = "<i class=' {$share_facebook_icon}'></i>";
 						} elseif ( 'custom' == $share_facebook_icon && $share_facebook_custom_icon ) {
 							$alt_text = __( 'Share on Facebook', 'yith-woocommerce-wishlist' );
 							$share_atts['share_facebook_icon'] = "<img src='{$share_facebook_custom_icon}' alt='{$alt_text}'/>";
@@ -437,13 +437,13 @@ if( ! class_exists( 'YITH_WCWL_Shortcode' ) ) {
 
 					if ( $share_twitter_enabled ) {
 						$share_twitter_summary = urlencode( str_replace( '%wishlist_url%', '', get_option( 'yith_wcwl_socials_text' ) ) );
-						$share_twitter_icon = get_option( 'yith_wcwl_tw_button_icon', 'fa-twitter' );
+						$share_twitter_icon = get_option( 'yith_wcwl_tw_button_icon', 'fab fa-twitter' );
 						$share_twitter_custom_icon = get_option( 'yith_wcwl_tw_button_custom_icon' );
 
 						$share_atts['share_twitter_summary'] = $share_twitter_summary;
 
 						if ( ! in_array( $share_twitter_icon, array( 'none', 'custom' ) ) ) {
-							$share_atts['share_twitter_icon'] = "<i class='fa {$share_twitter_icon}'></i>";
+							$share_atts['share_twitter_icon'] = "<i class=' {$share_twitter_icon}'></i>";
 						} elseif ( 'custom' == $share_twitter_icon && $share_twitter_custom_icon ) {
 							$alt_text = __( 'Tweet on Twitter', 'yith-woocommerce-wishlist' );
 							$share_atts['share_twitter_icon'] = "<img src='{$share_twitter_custom_icon}' alt='{$alt_text}'/>";
@@ -454,14 +454,14 @@ if( ! class_exists( 'YITH_WCWL_Shortcode' ) ) {
 
 					if ( $share_pinterest_enabled ) {
 						$share_image_url = urlencode( get_option( 'yith_wcwl_socials_image_url' ) );
-						$share_pinterest_icon = get_option( 'yith_wcwl_pr_button_icon', 'fa-pinterest' );
+						$share_pinterest_icon = get_option( 'yith_wcwl_pr_button_icon', 'fab fa-pinterest' );
 						$share_pinterest_custom_icon = get_option( 'yith_wcwl_pr_button_custom_icon' );
 
 						$share_atts['share_summary'] = $share_summary;
 						$share_atts['share_image_url'] = $share_image_url;
 
 						if ( ! in_array( $share_pinterest_icon, array( 'none', 'custom' ) ) ) {
-							$share_atts['share_pinterest_icon'] = "<i class='fa {$share_pinterest_icon}'></i>";
+							$share_atts['share_pinterest_icon'] = "<i class=' {$share_pinterest_icon}'></i>";
 						} elseif ( 'custom' == $share_pinterest_icon && $share_pinterest_custom_icon ) {
 							$alt_text = __( 'Pin on Pinterest', 'yith-woocommerce-wishlist' );
 							$share_atts['share_pinterest_icon'] = "<img src='{$share_pinterest_custom_icon}' alt='{$alt_text}'/>";
@@ -471,11 +471,11 @@ if( ! class_exists( 'YITH_WCWL_Shortcode' ) ) {
 					}
 
 					if ( $share_email_enabled ) {
-						$share_email_icon = get_option( 'yith_wcwl_em_button_icon', 'fa-email' );
+						$share_email_icon = get_option( 'yith_wcwl_em_button_icon', 'far fa-envelope' );
 						$share_email_custom_icon = get_option( 'yith_wcwl_em_button_custom_icon' );
 
 						if ( ! in_array( $share_email_icon, array( 'none', 'custom' ) ) ) {
-							$share_atts['share_email_icon'] = "<i class='fa {$share_email_icon}'></i>";
+							$share_atts['share_email_icon'] = "<i class=' {$share_email_icon}'></i>";
 						} elseif ( 'custom' == $share_email_icon && $share_email_custom_icon ) {
 							$alt_text = __( 'Share via email', 'yith-woocommerce-wishlist' );
 							$share_atts['share_email_icon'] = "<img src='{$share_email_custom_icon}' alt='{$alt_text}'/>";
@@ -485,7 +485,7 @@ if( ! class_exists( 'YITH_WCWL_Shortcode' ) ) {
 					}
 
 					if ( $share_whatsapp_enabled ) {
-						$share_whatsapp_icon = get_option( 'yith_wcwl_wa_button_icon', 'fa-whatsapp' );
+						$share_whatsapp_icon = get_option( 'yith_wcwl_wa_button_icon', 'fab fa-whatsapp' );
 						$share_whatsapp_custom_icon = get_option( 'yith_wcwl_wa_button_custom_icon' );
 						$share_whatsapp_url = '';
 
@@ -498,7 +498,7 @@ if( ! class_exists( 'YITH_WCWL_Shortcode' ) ) {
 						$share_atts['share_whatsapp_url'] = $share_whatsapp_url;
 
 						if ( ! in_array( $share_whatsapp_icon, array( 'none', 'custom' ) ) ) {
-							$share_atts['share_whatsapp_icon'] = "<i class='fa {$share_whatsapp_icon}'></i>";
+							$share_atts['share_whatsapp_icon'] = "<i class=' {$share_whatsapp_icon}'></i>";
 						} elseif ( 'custom' == $share_whatsapp_icon && $share_whatsapp_custom_icon ) {
 							$alt_text = __( 'Share on WhatsApp', 'yith-woocommerce-wishlist' );
 							$share_atts['share_whatsapp_icon'] = "<img src='{$share_whatsapp_custom_icon}' alt='{$alt_text}'/>";
@@ -659,9 +659,9 @@ if( ! class_exists( 'YITH_WCWL_Shortcode' ) ) {
 			// set icon when missing, when on top of image (icon only, icon required).
 			if ( ! $is_single && 'before_image' == get_option( 'yith_wcwl_loop_position' ) && ( ! $atts['icon'] || 'custom' == $atts['icon'] ) ) {
 				if ( ! $atts['icon'] ) {
-					$atts['icon'] = 'fa-heart-o';
+					$atts['icon'] = 'far fa-heart';
 				} elseif ( 'custom' == $atts['icon'] && ! $custom_icon && ! $custom_added_icon ) {
-					$atts['icon'] = 'fa-heart-o';
+					$atts['icon'] = 'far fa-heart';
 				}
 			}
 
@@ -681,8 +681,8 @@ if( ! class_exists( 'YITH_WCWL_Shortcode' ) ) {
 				$icon_html = '<img class="yith-wcwl-icon" src="' . $custom_icon . '" width="32" />';
 				$heading_icon_html = $icon_html;
 			} elseif ( 'custom' != $atts['icon'] ) {
-				$icon_html = ! empty( $atts['icon'] ) ? '<i class="yith-wcwl-icon fa ' . $atts['icon'] . '"></i>' : '';
-				$heading_icon_html = ! empty( $atts['heading_icon'] ) ? '<i class="yith-wcwl-icon fa ' . $atts['heading_icon'] . '"></i>' : '';
+				$icon_html = ! empty( $atts['icon'] ) ? '<i class="yith-wcwl-icon ' . $atts['icon'] . '"></i>' : '';
+				$heading_icon_html = ! empty( $atts['heading_icon'] ) ? '<i class="yith-wcwl-icon ' . $atts['heading_icon'] . '"></i>' : '';
 			} else {
 				$icon_html = '';
 				$heading_icon_html = '';

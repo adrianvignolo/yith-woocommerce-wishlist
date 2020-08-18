@@ -427,7 +427,7 @@ jQuery( document ).ready( function( $ ){
                 product_id = t.data( 'product_id' ),
                 variation_id = variation.variation_id,
                 targets = $('[data-product-id="' + product_id + '"]').add('[data-original-product-id="' + product_id + '"]'),
-                fragments = targets.closest( '.wishlist-fragment' ).filter(':visible');
+                fragments = targets.closest( '.wishlist-fragment' );
 
             if( ! product_id || ! variation_id || ! targets.length ){
                 return;
@@ -557,9 +557,7 @@ jQuery( document ).ready( function( $ ){
 
         init_copy_wishlist_link();
 
-        if( yith_wcwl_l10n.enable_ajax_loading ){
-            load_fragments();
-        }
+        load_fragments();
 
     } ).trigger('yith_wcwl_init');
 
@@ -724,7 +722,7 @@ jQuery( document ).ready( function( $ ){
                 icon = $( '<img/>', { 'src': data } );
             }
             else{
-                icon = $( '<i/>', { 'class': 'fa ' + data } );
+                icon = $( '<i/>', { 'class': data } );
             }
 
             t.prepend( icon ).addClass('icon-added');
@@ -1469,7 +1467,7 @@ jQuery( document ).ready( function( $ ){
                         'class': 'yith-wcwl-popup-feedback'
                     } );
 
-                    new_content.append( $( '<i/>', { 'class': 'fa fa-check heading-icon' } ) );
+                    new_content.append( $( '<i/>', { 'class': 'fas fa-check heading-icon' } ) );
                     new_content.append( $( '<p/>', { 'class': 'feedback', 'html': message } ) );
                     new_content.css( 'display', 'none' );
 
@@ -1691,6 +1689,10 @@ jQuery( document ).ready( function( $ ){
      * @since 3.0.0
      */
     function load_fragments( search ) {
+        if( ! yith_wcwl_l10n.enable_ajax_loading ){
+            return;
+        }
+
         search = $.extend( {
             firstLoad: true
         }, search );
